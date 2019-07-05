@@ -1,12 +1,12 @@
 #include <Morse.h>
    char tempo[100];
-   char character=',';
+     char character='\r';
    int i;
  Morse morse(13);
 
 void setup()
 { Serial.begin(9600);
-  while(
+ 
    
 }
 
@@ -16,9 +16,8 @@ void loop()
  if(Serial.available()>0)
    {delay(100);
     Serial.readBytesUntil(character,tempo,100);
-      digitalWrite(13,HIGH);
-     
-    for(i=0;i<=20;i++)
+      delay(100);
+    for(i=0;tempo[i]!='\0';i++)
       { 
       switch(tempo[i])
       {
@@ -108,7 +107,7 @@ void loop()
      delay(3000);
           
           }
-       for(i=0;i<=20;i++)
+       for(i=0;tempo[i]!='\0';i++)
        {tempo[i]='\0';
         }
        }
